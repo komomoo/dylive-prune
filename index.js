@@ -41,7 +41,7 @@
   const observer = new MutationObserver((records) => {
     const gifBtn = document.querySelector(giftBtnDom)
     if (gifBtn) {
-      setTimeout(() => gifBtn.click(), 100)
+      setTimeout(() => gifBtn.click(), 200)
       observer.disconnect()
     }
   })
