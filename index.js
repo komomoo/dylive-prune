@@ -10,7 +10,7 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function () {
+;(function () {
   'use strict'
 
   const css = `
@@ -36,14 +36,17 @@
   document.querySelector('head').append(style)
 
   // 点击关闭礼物按钮
-  const giftBtnDom = '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) > div > div:nth-child(2)'
-  const target = document.querySelector('.basicPlayer')
-  const observer = new MutationObserver((records) => {
-    const gifBtn = document.querySelector(giftBtnDom)
-    if (gifBtn) {
-      setTimeout(() => gifBtn.click(), 200)
-      observer.disconnect()
-    }
-  })
-  observer.observe(target, { childList: true })
+  function giftClickClose() {
+    const giftBtnDom = '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) > div > div:nth-child(2)'
+    const target = document.querySelector('.basicPlayer')
+    const observer = new MutationObserver((records) => {
+      const gifBtn = document.querySelector(giftBtnDom)
+      if (gifBtn) {
+        setTimeout(() => gifBtn.click(), 50)
+        observer.disconnect()
+      }
+    })
+    observer.observe(target, { childList: true })
+  }
+  setTimeout(giftClickClose, 50)
 })()
