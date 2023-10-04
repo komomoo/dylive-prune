@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         抖音直播精简2023
 // @namespace    https://github.com/komomoo/dylive-prune
-// @version      0.7
-// @description  移除相关直播、移除礼物栏、移除用户进入直播间消息、移除粉丝牌&礼物弹幕、移除点赞动画、进入直播间时自动屏蔽礼物特效。源代码https://github.com/komomoo/dylive-prune，欢迎pr👏
+// @version      0.8
+// @description  移除相关直播、移除礼物栏、移除用户进入直播间消息、移除粉丝牌&礼物弹幕、移除点赞动画、进入直播间时自动屏蔽礼物特效、小黄车。源代码https://github.com/komomoo/dylive-prune，欢迎pr👏
 // @author       komo
 // @match        https://live.douyin.com/*
 // @icon         https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_web/public/favicon.ico
@@ -28,6 +28,8 @@
   #flutterLike{display:none !important;}
   /* 礼物特效栏 */
   .VLPIYL3T{display:none !important;}
+  /* 小黄车 */
+  .element-timing{display:none !important;}
   `
   const style = document.createElement('style')
   style.appendChild(document.createTextNode(css))
