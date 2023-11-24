@@ -14,10 +14,10 @@
   'use strict'
 
   const css = `
-  /* 移除相关直播 */
-  .OkoVu3vW{display: none !important;}
   /* 移除礼物栏 */
-  .tgMCqIjJ{display: none !important;}
+  .aqK_4_5U{display: none !important;}
+  /* 移除相关直播 */
+  .evLAq21m{display: none !important;}
   /* 网页全屏：全屏高度 */
   .EDvjMGPs.FKQqfehj{height:100% !important;}
   /* 弹幕区用户进入直播间消息 */
