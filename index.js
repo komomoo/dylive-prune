@@ -23,7 +23,7 @@
   /* 弹幕区用户进入直播间消息 */
   .webcast-chatroom___bottom-message{display:none !important;}
   /* 粉丝牌&礼物弹幕 */
-  .XNK_12gj{display:none !important;}
+  .ZUGMpBcb{display:none !important;}
   /* 点赞动画 */
   #flutterLike{display:none !important;}
   /* 礼物特效栏 */
