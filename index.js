@@ -17,6 +17,7 @@
   const css = `
   /* 移除礼物栏 */
   .aqK_4_5U{display: none !important;}
+  .xg-inner-controls{bottom: 8px !important;}
   /* 移除相关直播 */
   .evLAq21m{display: none !important;}
   /* 网页全屏：全屏高度 */
