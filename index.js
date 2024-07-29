@@ -49,7 +49,9 @@
     const target = document.querySelector('.basicPlayer')
     const observer = new MutationObserver((records) => {
       const giftBtn = document.querySelector(giftBtnDom)
-      const giftBtnTxt = document.querySelector('.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) div.WoNKVQmY.Z20k_Nsy')
+      const giftBtnTxt = document.querySelector(
+        '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) div.WoNKVQmY.Z20k_Nsy'
+      )
       if (giftBtn && giftBtnTxt?.textContent === '屏蔽礼物特效') {
         // console.log('---', giftBtn)
         giftBtn.click()
@@ -59,5 +61,21 @@
     })
     observer.observe(target, { childList: true })
   }
-  setTimeout(giftClickClose, 50)
+  // setTimeout(giftClickClose, 50)
+
+  // 点击关闭礼物按钮
+  function giftClickLoop() {
+    const giftBtnDom = '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) > div > div:nth-child(2)'
+    const giftBtn = document.querySelector(giftBtnDom)
+    const giftBtnTxt = document.querySelector(
+      '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) div.WoNKVQmY.Z20k_Nsy'
+    )
+    console.log('------', giftBtnTxt?.textContent)
+    if (giftBtn && giftBtnTxt?.textContent === '屏蔽礼物特效') {
+      giftBtn.click()
+    } else {
+      setTimeout(giftClickLoop, 100)
+    }
+  }
+  giftClickLoop()
 })()
