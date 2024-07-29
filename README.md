@@ -6,4 +6,4 @@
 
 https://greasyfork.org/zh-CN/scripts/467780
 
-不定期更新，欢迎PR👏
+欢迎PR👏
