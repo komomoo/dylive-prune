@@ -1,11 +1,10 @@
 // ==UserScript==
 // @name         抖音直播精简
 // @namespace    https://github.com/komomoo/dylive-prune
-// @version      0.20
-// @description  移除相关直播、移除礼物栏、移除用户进入直播间消息、移除粉丝牌&礼物弹幕、移除点赞动画、进入直播间时自动屏蔽礼物特效、移除顶栏客户端&快捷访问按钮。源代码https://github.com/komomoo/dylive-prune，欢迎pr👏
+// @version      0.21
+// @description  移除相关直播、移除礼物栏、移除用户进入直播间消息、移除粉丝牌&礼物弹幕、移除点赞动画、自动屏蔽礼物特效、移除顶栏客户端&快捷访问按钮、自动网页全屏、自动切原画画质。源代码https://github.com/komomoo/dylive-prune，欢迎pr👏
 // @author       komo
 // @match        https://live.douyin.com/*
-// @match        https://www.douyin.com/*
 // @icon         https://lf1-cdn-tos.bytegoofy.com/goofy/ies/douyin_web/public/favicon.ico
 // @grant        none
 // @run-at       document-end
@@ -64,9 +63,10 @@
   // setTimeout(giftClickClose, 50)
 
   // 点击关闭礼物按钮
-  function giftClickLoop() {
-    const giftBtnDom = '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) > div > div:nth-child(2)'
-    const giftBtn = document.querySelector(giftBtnDom)
+  function giftClick() {
+    const giftBtn = document.querySelector(
+      '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) > div > div:nth-child(2)'
+    )
     const giftBtnTxt = document.querySelector(
       '.xg-inner-controls > xg-right-grid > xg-icon:nth-child(5) div.WoNKVQmY.Z20k_Nsy'
     )
@@ -74,8 +74,32 @@
     if (giftBtn && giftBtnTxt?.textContent === '屏蔽礼物特效') {
       giftBtn.click()
     } else {
-      setTimeout(giftClickLoop, 100)
+      setTimeout(giftClick, 100)
     }
   }
-  giftClickLoop()
+  giftClick()
+
+  // 网页全屏
+  function fullClick() {
+    const btn = document.querySelector('.xg-inner-controls > xg-right-grid > .sLHkIpHN > div > div:nth-child(2)')
+    if (btn) {
+      btn.click()
+    } else {
+      setTimeout(fullClick, 100)
+    }
+  }
+  fullClick()
+
+  // 切原画
+  function qualityClick() {
+    const btn = document.querySelector(
+      '.xg-inner-controls > xg-right-grid > div > div > div > div > div.d6hxo84G.TjaSu2Z2 > div > div:nth-child(1)'
+    )
+    if (btn) {
+      btn.click()
+    } else {
+      setTimeout(qualityClick, 100)
+    }
+  }
+  setTimeout(qualityClick, 500)
 })()
