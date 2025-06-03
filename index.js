@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         抖音直播精简
 // @namespace    https://github.com/komomoo/dylive-prune
-// @version      0.32
+// @version      0.33
 // @description  移除相关直播、移除礼物栏、移除用户进入直播间消息、移除粉丝牌&礼物弹幕、移除点赞动画、自动屏蔽礼物特效、移除顶栏客户端&快捷访问按钮、自动网页全屏、自动切原画画质。源代码https://github.com/komomoo/dylive-prune，欢迎pr👏
 // @author       komo
 // @match        https://live.douyin.com/*
@@ -89,7 +89,7 @@
       setTimeout(fullClick, 100)
     }
   }
-  fullClick()
+  // fullClick()
 
   // 切原画
   function qualityClick() {
@@ -102,5 +102,5 @@
       setTimeout(qualityClick, 100)
     }
   }
-  setTimeout(qualityClick, 2500)
+  setTimeout(qualityClick, 3000)
 })()
