@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         抖音直播精简
 // @namespace    https://github.com/komomoo/dylive-prune
-// @version      0.39
+// @version      0.40
 // @description  移除相关直播、移除礼物栏、移除用户进入直播间消息、移除粉丝牌&礼物弹幕、移除点赞动画、自动屏蔽礼物特效、移除顶栏客户端&快捷访问按钮、自动网页全屏、自动切原画画质。源代码https://github.com/komomoo/dylive-prune，欢迎pr👏
 // @author       komo
 // @match        https://live.douyin.com/*
@@ -78,7 +78,9 @@
 
   // 网页全屏
   function fullClick() {
-    const btn = document.querySelector('div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(2)')
+    const btn = document.querySelector(
+      'div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(2)'
+    )
     if (btn) {
       btn.click()
     } else {
@@ -89,11 +91,13 @@
 
   // 切原画
   function qualityClick() {
-    const btn = document.querySelector(
-      'div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(8) > div > div > div > div.N16rDtOa.vOEJT9B5 > div > div:nth-child(1) > div > div'
+    const btnWrap = document.querySelector(
+      'div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(8) > div > div > div > div.N16rDtOa.vOEJT9B5 > div'
     )
-    if (btn) {
-      btn.click()
+    if (btnWrap) {
+      btnWrap.querySelectorAll('.xMYYJi25').forEach((el) => {
+        if (el.textContent.includes('原画')) el.click()
+      })
     } else {
       setTimeout(qualityClick, 1000)
     }
