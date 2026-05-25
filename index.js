@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         抖音直播精简
 // @namespace    https://github.com/komomoo/dylive-prune
-// @version      0.51
+// @version      0.52
 // @description  dy主站不生效，需点击右键-在新标签页中打开。移除相关直播、移除礼物栏、移除用户进入直播间消息、移除点赞动画、自动屏蔽礼物特效&粉丝牌弹幕&礼物弹幕、自动网页全屏、自动切原画画质。源代码https://github.com/komomoo/dylive-prune，不定时更新，欢迎pr👏
 // @author       komo
 // @match        https://live.douyin.com/*
@@ -127,10 +127,10 @@
   // 切原画
   function qualityClick() {
     const btnWrap = document.querySelector(
-      'div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(8) > div > div > div > div.N16rDtOa.vOEJT9B5 > div'
+      'div.douyin-player-controls-right > slot:nth-child(8)'
     )
     if (btnWrap) {
-      btnWrap.querySelectorAll('.xMYYJi25').forEach((el) => {
+      btnWrap.querySelectorAll('.tmNdnn5Q').forEach((el) => {
         if (el.textContent.includes('原画')) el.click()
       })
     } else {
