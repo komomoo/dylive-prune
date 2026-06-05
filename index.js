@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         抖音直播精简
 // @namespace    https://github.com/komomoo/dylive-prune
-// @version      0.52
+// @version      0.53
 // @description  dy主站不生效，需点击右键-在新标签页中打开。移除相关直播、移除礼物栏、移除用户进入直播间消息、移除点赞动画、自动屏蔽礼物特效&粉丝牌弹幕&礼物弹幕、自动网页全屏、自动切原画画质。源代码https://github.com/komomoo/dylive-prune，不定时更新，欢迎pr👏
 // @author       komo
 // @match        https://live.douyin.com/*
@@ -38,6 +38,32 @@
   const style = document.createElement('style')
   style.appendChild(document.createTextNode(css))
   document.querySelector('head').append(style)
+
+  // 网页全屏
+  function fullClick() {
+    const btn = document.querySelector(
+      'div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(2)'
+    )
+    if (btn) {
+      btn.click()
+    } else {
+      setTimeout(fullClick, 1000)
+    }
+  }
+  // fullClick()
+
+  // 切原画
+  function qualityClick() {
+    const btnWrap = document.querySelector('div.douyin-player-controls-right')
+    if (btnWrap) {
+      btnWrap.querySelectorAll('.tmNdnn5Q').forEach((el) => {
+        if (el.textContent.includes('原画')) el.click()
+      })
+    } else {
+      setTimeout(qualityClick, 1000)
+    }
+  }
+  setTimeout(qualityClick, 5000)
 
   // 点击关闭礼物按钮
   // function giftClickClose() {
@@ -110,34 +136,6 @@
     }
   }
   setTimeout(giftClick, 2000)
-
-  // 网页全屏
-  function fullClick() {
-    const btn = document.querySelector(
-      'div.douyin-player-controls > div > div.douyin-player-controls-right > slot:nth-child(2)'
-    )
-    if (btn) {
-      btn.click()
-    } else {
-      setTimeout(fullClick, 1000)
-    }
-  }
-  // fullClick()
-
-  // 切原画
-  function qualityClick() {
-    const btnWrap = document.querySelector(
-      'div.douyin-player-controls-right > slot:nth-child(8)'
-    )
-    if (btnWrap) {
-      btnWrap.querySelectorAll('.tmNdnn5Q').forEach((el) => {
-        if (el.textContent.includes('原画')) el.click()
-      })
-    } else {
-      setTimeout(qualityClick, 1000)
-    }
-  }
-  setTimeout(qualityClick, 5000)
 })()
 
 /**
